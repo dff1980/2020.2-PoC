@@ -94,3 +94,14 @@ rmt-cli mirror
 
 ##Configure Node Teamplate
 Install minimal SLES system
+
+zypper in -y cloud-init
+systemctl enable cloud-init-local.service
+systemctl enable cloud-init.service
+systemctl enable cloud-config.service
+systemctl enable cloud-final.service
+
+sudo zypper install -y clone-master-clean-up
+clone-master-clean-up
+
+
