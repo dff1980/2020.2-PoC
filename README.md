@@ -94,6 +94,14 @@ rmt-cli mirror
 
 ##Configure Node Teamplate
 Install minimal SLES system
+
+In the file /etc/sysctl.conf add the following lines:
+```
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+```
+
 ```
 zypper in -y cloud-init
 systemctl enable cloud-init-local.service
