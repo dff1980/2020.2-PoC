@@ -98,6 +98,14 @@ Install minimal SLES system
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 ```
+Install docker
+```
+usermod -aG docker <user_name>
+```
+```
+systemctl enable docker.service
+systemctl start docker.service
+```
 
 In the file /etc/sysctl.conf add the following lines:
 ```
@@ -146,6 +154,7 @@ AllowTcpForwarding yes
 ```
 
 ```
+SUSEConnect --product sle-module-public-cloud/15.2/x86_64
 zypper in -y cloud-init
 systemctl enable cloud-init-local.service
 systemctl enable cloud-init.service
