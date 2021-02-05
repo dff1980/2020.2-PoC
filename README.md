@@ -92,14 +92,57 @@ Add repositories to replication.
 rmt-cli mirror
 ```
 
-##Configure Node Teamplate
+## Configure Node Teamplate
 Install minimal SLES system
+```
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+```
 
 In the file /etc/sysctl.conf add the following lines:
 ```
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
+```
+add file /etc/modules-load.d/modules-rancher.conf
+```
+br_netfilter
+ip6_udp_tunnel
+ip_set_hash_ip
+ip_set_hash_net
+iptable_filter
+iptable_nat
+iptable_mangle
+iptable_raw
+nf_conntrack_netlink
+nf_conntrack
+nf_conntrack_ipv4
+nf_defrag_ipv4
+nf_nat
+nf_nat_ipv4
+nf_nat_masquerade_ipv4
+udp_tunnel
+veth
+vxlan
+xt_addrtype
+xt_conntrack
+xt_comment
+xt_mark
+xt_multiport
+xt_nat
+xt_recent
+xt_set
+xt_statistic
+xt_tcpudp
+```
+add file /etc/sysctl.d/90-rancher.conf
+```
+net.bridge.bridge-nf-call-iptables=1
+```
+change file /etc/ssh/sshd_config
+```
+AllowTcpForwarding yes
 ```
 
 ```
