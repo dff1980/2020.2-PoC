@@ -94,9 +94,16 @@ rmt-cli mirror
 
 ## Configure Node Teamplate
 Install minimal SLES system
+
+RKE for rancher Node
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
+```
+RKE Template Node
+```
+firewall-cmd --permanent --add-port=22/tcp
+firewall-cmd --reload
 ```
 Install docker
 ```
