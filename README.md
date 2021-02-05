@@ -95,24 +95,31 @@ rmt-cli mirror
 ## Configure Node Teamplate
 Install minimal SLES system
 
-RKE for rancher Node
+RKE for Rancher Node
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 ```
+or [https://rancher.com/docs/rke/latest/en/os/#ports](https://rancher.com/docs/rke/latest/en/os/#ports)
+
 RKE Template Node
 ```
 firewall-cmd --permanent --add-port=22/tcp
 firewall-cmd --reload
 ```
+
 Install docker
 ```
-usermod -aG docker <user_name>
+SUSEConnect --product sle-module-containers/15.2/x86_64
+zypper in -y docker
 ```
 ```
 systemctl enable docker.service
 systemctl start docker.service
+/usr/sbin/usermod -aG docker root
+chown root:docker /var/run/docker.sock
 ```
+
 
 In the file /etc/sysctl.conf add the following lines:
 ```
