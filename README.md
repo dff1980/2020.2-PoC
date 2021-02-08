@@ -96,6 +96,7 @@ rmt-cli mirror
 
 ## Configure Node Teamplate
 Install minimal SLES system
+Disable swap
 
 RKE for Rancher Node
 ```
