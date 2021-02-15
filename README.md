@@ -182,3 +182,5 @@ sudo zypper install -y clone-master-clean-up
 clone-master-clean-up
 ```
 
+## Appendix
+https://hub.docker.com/r/leodotcloud/swiss-army-knife
