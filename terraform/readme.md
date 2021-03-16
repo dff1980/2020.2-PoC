@@ -31,6 +31,9 @@ provider "vsphere" {
 }
 EOF
 ```
+run terraform init
+```
 terraform init
+```
 
 
