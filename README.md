@@ -170,6 +170,9 @@ change file /etc/ssh/sshd_config
 AllowTcpForwarding yes
 ```
 
+Delete /etc/sysconfig/network/ifcfg-{eth/MAC}
+clear /etc/udev/rules.d/ from MAC binding
+
 ```
 SUSEConnect --product sle-module-public-cloud/15.2/x86_64
 zypper in -y cloud-init
