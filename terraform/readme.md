@@ -1,6 +1,6 @@
 # Create VMware vSphere RKE cluster using Terraform
 
-## Install Terraform at admin node
+## Install Terraform at admin node (SLES15 SP2)
 ```
 SUSEConnect --product sle-module-public-cloud/15.2/x86_64
 zypper in terraform
