@@ -1,4 +1,4 @@
-vsphere_server     = "esx.novell-cis.ru"
+vsphere_server     = ""
 vsphere_user       = "Administrator@vsphere.local"
 #vsphere_password   = ""
 datacenter         = "Novell CIS DC"
