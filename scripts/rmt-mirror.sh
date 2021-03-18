@@ -1,6 +1,6 @@
 rmt-cli sync
 
-#переделать produc вместо repos
+#Need reconfigure to use product instead repos
 #repos=$(rmt-cli repos list --all)
 #for REPO in SLE-Product-SLES15-SP2-{Pool,Updates} SLE-Module-Server-Applications15-SP2-{Pool,Updates} SLE-Module-Basesystem15-SP2-{Pool,Updates} SLE-Module-Containers15-SP2-{Pool,Updates}
 # do
