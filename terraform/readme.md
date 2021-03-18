@@ -69,4 +69,7 @@ run terraform init
 terraform init
 ```
 
+### Links
+https://github.com/linoproject/terraform/tree/master/rancher-lab
+https://blog.linoproject.net/cloud-init-with-terraform-in-vsphere-environment-a-step-forward/
 
