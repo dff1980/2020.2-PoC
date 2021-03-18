@@ -1,5 +1,11 @@
 # Create VMware vSphere RKE cluster using Terraform
 
+## Terraform
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+
 ## Install Terraform at admin node (SLES15 SP2)
 ```
 SUSEConnect --product sle-module-public-cloud/15.2/x86_64
@@ -7,12 +13,15 @@ zypper in terraform
 ```
 ## Install at node template cloud-init-vmware-guestinfo
 
+does not work
 ```
 SUSEConnect -p PackageHub/15.2/x86_64
 zypper install cloud-init-vmware-guestinfo
 ```
-
-
+work version
+```
+curl -sSL https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/master/install.sh | sh -
+```
 
 
 
