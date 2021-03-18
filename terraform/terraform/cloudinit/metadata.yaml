@@ -1,3 +1,3 @@
 #cloud-config
-local-hostname: node-01
-instance-id: node-01
+hostname: node-01
+
