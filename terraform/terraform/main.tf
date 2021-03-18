@@ -57,9 +57,9 @@ resource "vsphere_virtual_machine" "tf_node_test" {
   disk {
     label            = "disk0"
     #thin_provisioned = true
-    #size             = 35
+    size             = 35
     ##eagerly_scrub = false
-    size = data.vsphere_virtual_machine.template.disks.0.size
+    #size = data.vsphere_virtual_machine.template.disks.0.size
     thin_provisioned = data.vsphere_virtual_machine.template.disks.0.thin_provisioned
   }
 
@@ -69,5 +69,28 @@ resource "vsphere_virtual_machine" "tf_node_test" {
 
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
+  
+# may be conflict with cloud-init beacuse may use reboot for configure interface
+    customize {
+        linux_options {
+            host_name = "terraform-test"
+            domain = "rancher.suse.ru"
+        }
+        network_interface {
+            ipv4_address = "192.168.13.201"
+            ipv4_netmask = 24
+        }
+        ipv4_gateway = "192.168.13.1"
+    }
+
   }
+
+
+  extra_config = {
+    "guestinfo.metadata"          = base64encode(file("${path.module}/cloudinit/metadata.yaml"))
+    "guestinfo.metadata.encoding" = "base64"
+    "guestinfo.userdata"          = base64encode(file("${path.module}/cloudinit/userdata.yaml"))
+    "guestinfo.userdata.encoding" = "base64"
+  }
+
 }

@@ -11,6 +11,7 @@ variable "vsphere_user" {
 variable "vsphere_password" {
   description = "vSphere password"
   type        = string
+  sensitive   = true
 }
 
 variable "datacenter" {
