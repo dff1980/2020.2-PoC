@@ -12,6 +12,24 @@ SUSEConnect -p PackageHub/15.2/x86_64
 zypper install cloud-init-vmware-guestinfo
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Appendix
+### Only add vSphere terraform provider
 make directory terraform-admin
 
 ```
