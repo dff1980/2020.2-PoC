@@ -1,0 +1,10 @@
+#cloud-config 
+
+runcmd:
+  - SUSEConnect --url 192.168.13.1
+#  - parted -s /dev/sda resize 2 100% # auto in cloud-init
+#  - resize2fs /dev/sda2 # auto in cloud-init
+#bootcmd:
+#  - parted -s /dev/sda resize 2 100%
+#  - resize2fs /dev/sda2
+#  - SUSEConnect --url 192.168.13.1
