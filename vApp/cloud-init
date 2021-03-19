@@ -1,0 +1,22 @@
+#cloud-config
+write_files:
+  - path: /tmp/network-setup.sh
+    content: |
+        #!/bin/bash
+        vmtoolsd --cmd 'info-get guestinfo.ovfEnv' > /tmp/ovfenv
+        IPAddress=$(sed -n 's/.*Property oe:key="guestinfo.interface.0.ip.0.address" oe:value="\([^"]*\).*/\1/p' /tmp/ovfenv)
+        SubnetMask=$(sed -n 's/.*Property oe:key="guestinfo.interface.0.ip.0.netmask" oe:value="\([^"]*\).*/\1/p' /tmp/ovfenv)
+        Gateway=$(sed -n 's/.*Property oe:key="guestinfo.interface.0.route.0.gateway" oe:value="\([^"]*\).*/\1/p' /tmp/ovfenv)
+        DNS=$(sed -n 's/.*Property oe:key="guestinfo.dns.servers" oe:value="\([^"]*\).*/\1/p' /tmp/ovfenv)
+        
+        sudo yast lan delete id=0
+        sudo yast lan add name=eth0 ethdevice=eth0 bootproto=static ip=$IPAddress netmask=$SubnetMask type=eth
+        sudo echo "default $Gateway - eth0" > /etc/sysconfig/network/ifroute-eth0
+        DNS_SERVERS=$(echo "$DNS" | sed 's/,/ /g')
+        sudo sed -i "s/NETCONFIG_DNS_STATIC_SERVERS=\".*\"/NETCONFIG_DNS_STATIC_SERVERS=\"$DNS_SERVERS\"/" /etc/sysconfig/network/config
+        sudo netconfig update -f
+        systemctl restart wicked
+runcmd:
+  - bash /tmp/network-setup.sh
+  - rm /tmp/network-setup.sh
+  - SUSEConnect --url 192.168.13.1
