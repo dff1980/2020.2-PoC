@@ -7,10 +7,15 @@ terraform apply
 terraform destroy
 
 ## Install Terraform at admin node (SLES15 SP2)
+Standart way, but old version can't use some features
 ```
 SUSEConnect --product sle-module-public-cloud/15.2/x86_64
 zypper in terraform
 ```
+best way download form
+https://www.terraform.io/downloads.html
+and put app to ~/bin/
+
 ## Install at node template cloud-init-vmware-guestinfo
 
 does not work
