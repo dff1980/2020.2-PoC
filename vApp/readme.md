@@ -2,11 +2,11 @@
 
 https://www.virtualthoughts.co.uk/2020/03/29/rancher-vsphere-network-protocol-profiles-and-static-ip-addresses-for-k8s-nodes/
 
-OVF environment transport com.vmware.guestInfo
+OVF environment transport: com.vmware.guestInfo
 
-vApp IP protocol  IPv4
+vApp IP protocol:  IPv4
 
-vApp IP allocation policy fixedAllocated
+vApp IP allocation policy: fixedAllocated
 
 Key = Value
 
