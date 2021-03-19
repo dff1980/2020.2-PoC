@@ -19,6 +19,7 @@ guestinfo.interface.0.route.0.gateway = ${gateway:PZhukov Rancher}
 guestinfo.dns.servers =	${dns:PZhukov Rancher}
  
 ## cloud-init for SLES 12 SP2
+```
 #cloud-config
 write_files:
   - path: /tmp/network-setup.sh
@@ -41,3 +42,4 @@ runcmd:
   - bash /tmp/network-setup.sh
   - rm /tmp/network-setup.sh
   - SUSEConnect --url 192.168.13.1
+```
