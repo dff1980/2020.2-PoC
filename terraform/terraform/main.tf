@@ -44,8 +44,8 @@ resource "vsphere_virtual_machine" "tf_node_test" {
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
 
-  num_cpus = 2
-  memory   = 1024
+  num_cpus = 4
+  memory   = 8192
 
   network_interface {
     network_id = data.vsphere_network.network.id
@@ -73,13 +73,14 @@ resource "vsphere_virtual_machine" "tf_node_test" {
 # may be conflict with cloud-init beacuse may use reboot for configure interface
     customize {
         linux_options {
-            host_name = "terraform-test"
+            host_name = "node-tf-01"
             domain = "rancher.suse.ru"
         }
         network_interface {
             ipv4_address = "192.168.13.201"
             ipv4_netmask = 24
         }
+        dns_server_list = [ "192.168.13.1" ]
         ipv4_gateway = "192.168.13.1"
     }
 
