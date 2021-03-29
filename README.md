@@ -184,6 +184,41 @@ systemctl enable cloud-final.service
 sudo zypper install -y clone-master-clean-up
 clone-master-clean-up
 ```
+## Configure nginx load-balancer at router host
+edit /etc/nginx/vhosts.d/rmt-server-http.conf and /etc/nginx/vhosts.d/rmt-server-https.conf
+change to listen only internal addresses
+Example:
+```
+server {
+    listen 192.168.13.1:443
+``` 
+add to /etc/nginx/nginx.conf something like this:
 
+```
+stream {
+    upstream rancher_servers_http {
+        least_conn;
+        server 192.168.13.101:80 max_fails=3 fail_timeout=5s;
+        server 192.168.13.102:80 max_fails=3 fail_timeout=5s;
+        server 192.168.13.103:80 max_fails=3 fail_timeout=5s;
+    }
+    server {
+        listen 172.17.13.45:80;
+        proxy_pass rancher_servers_http;
+    }
+
+    upstream rancher_servers_https {
+        least_conn;
+        server 192.168.13.101:443 max_fails=3 fail_timeout=5s;
+        server 192.168.13.102:443 max_fails=3 fail_timeout=5s;
+        server 192.168.13.103:443 max_fails=3 fail_timeout=5s;
+    }
+    server {
+        listen     172.17.13.45:443;
+        proxy_pass rancher_servers_https;
+    }
+}
+```
 ## Appendix
 https://hub.docker.com/r/leodotcloud/swiss-army-knife
+
