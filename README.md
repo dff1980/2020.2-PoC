@@ -221,4 +221,6 @@ stream {
 ```
 ## Appendix
 https://hub.docker.com/r/leodotcloud/swiss-army-knife
+https://github.com/mhoyer/docker-swiss-army-knife
+Add side car (from web interface, or add container set in yaml)
 
