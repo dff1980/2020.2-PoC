@@ -186,7 +186,8 @@ clone-master-clean-up
 ```
 ## Configure nginx load-balancer at router host
 edit /etc/nginx/vhosts.d/rmt-server-http.conf and /etc/nginx/vhosts.d/rmt-server-https.conf
-change to listen only internal addresses
+change to listen only internal addresses.
+
 Example:
 ```
 server {
