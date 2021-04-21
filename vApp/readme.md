@@ -43,3 +43,5 @@ runcmd:
   - rm /tmp/network-setup.sh
   - SUSEConnect --url 192.168.13.1
 ```
+## Appendix
+https://github.com/dff1980/2020.2-PoC/tree/main/vApp
