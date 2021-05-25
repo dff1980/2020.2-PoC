@@ -31,19 +31,8 @@ work version
 curl -sSL https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/master/install.sh | sh -
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Init, Plan, Apply, Destroy
+use: terraform with init, plan, apply, and destroy.
 
 ## Appendix
 ### Only add vSphere terraform provider
