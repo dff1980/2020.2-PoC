@@ -1,7 +1,7 @@
 # Create VMware vSphere RKE cluster using Terraform
 ## User system variable as terraform variable
 ```
-export TF_VAR_password=(the password)
+ export TF_VAR_vsphere_password="password"
 ```
 ## Terraform
 terraform init
