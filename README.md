@@ -44,7 +44,7 @@ Currently, PoC hosted on VMware VSphere.
   
 - 4 x RKE Node for demo
     
-     32 GB RAM
+     4 - 32 GB RAM
      
      4 x HDD 100 GB
      
