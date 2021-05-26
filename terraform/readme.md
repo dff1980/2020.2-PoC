@@ -3,11 +3,6 @@
 ```
  export TF_VAR_vsphere_password="password"
 ```
-## Terraform
-terraform init
-terraform plan
-terraform apply
-terraform destroy
 
 ## Install Terraform at admin node (SLES15 SP2)
 Standart way, but old version can't use some features
@@ -31,8 +26,13 @@ work version
 curl -sSL https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/master/install.sh | sh -
 ```
 
-## Init, Plan, Apply, Destroy
-use: terraform with init, plan, apply, and destroy.
+## Terraform Init, Plan, Apply, Destroy
+```
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+```
 
 ## Appendix
 ### Only add vSphere terraform provider
