@@ -42,7 +42,7 @@ Currently, PoC hosted on VMware VSphere.
   
      1 LAN (Minimum 1Gb/s)
   
-- 3 x RKE Node for demo
+- 1-3 (or more) x RKE Node for demo
     
      4 - 32 GB RAM
      
