@@ -2,7 +2,7 @@
 
 runcmd:
   - SUSEConnect --url 192.168.13.1
-  - sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.5.3 --server https://rancher.rancher.suse.ru --token 4knq8lq5lnspn9bxcng97clmf2fjq4sq4ng5fsgjbncqtw2lqrgq7p --ca-checksum 0faaf372b82ff3b392cb82ebd5faf9104345c59204a7a8f6e56e33e4d33ef490 --etcd --controlplane --worker
+  - sudo docker # put the rancher generated command here
 #  - parted -s /dev/sda resize 2 100% # auto in cloud-init
 #  - resize2fs /dev/sda2 # auto in cloud-init
 #bootcmd:
