@@ -69,5 +69,8 @@ terraform init
 ### Links
 https://github.com/linoproject/terraform/tree/master/rancher-lab
 https://blog.linoproject.net/cloud-init-with-terraform-in-vsphere-environment-a-step-forward/
-not necessary https://kb.vmware.com/s/article/59557
+
+not necessary
+
+https://kb.vmware.com/s/article/59557
 
